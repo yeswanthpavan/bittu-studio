@@ -36,7 +36,7 @@ nav a {
 
 /* Hero Section */
 .hero {
-  background: url('images/background.jpeg') center/cover no-repeat;
+  background: url('https://res.cloudinary.com/dql2hhhv8/image/upload/v1751891273/background_vy3qni.jpg') center/cover no-repeat;
   color: rgb(231, 224, 224);
   text-align: justify;
   padding: 10rem 2rem;
