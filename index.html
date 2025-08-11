@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,21 +6,39 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Photo Studio</title>
   <link rel="stylesheet" href="styles.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <style>
-    /* Simple styling for admin panel */
-    #admin-panel {
-      display: none;
-      background: #f4f4f4;
-      padding: 20px;
-      margin-top: 20px;
-      border: 2px solid #ccc;
-    }
-    .admin-form {
-      margin: 20px 0;
-    }
-  </style>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
+<script>
+  const loginForm = document.querySelector('.admin-form');
+  const loginMessage = document.getElementById('login-message');
+  const adminPanel = document.getElementById('admin-panel');
+
+  const correctUsername = "admin";
+  const correctPassword = "1234";
+
+  loginForm.addEventListener("submit", function (e) {
+    e.preventDefault();
+    const username = document.getElementById('admin-username').value;
+    const password = document.getElementById('admin-password').value;
+
+    if (username === correctUsername && password === correctPassword) {
+      loginMessage.textContent = "Login successful!";
+      adminPanel.style.display = "block";
+    } else {
+      loginMessage.textContent = "Invalid credentials.";
+    }
+  });
+
+  function updateServiceText() {
+    const newText = document.getElementById('edit-service-1').value;
+    const serviceCard = document.querySelectorAll('.card h3')[0]; // First service title
+    if (newText && serviceCard) {
+      serviceCard.textContent = newText;
+      alert("Service updated!");
+    }
+  }
+</script>
+
 <body>
   <header class="header">
     <h1>BITTU STUDIO</h1>
@@ -28,13 +47,15 @@
         <li><a href="#services">Services</a></li>
         <li><a href="#gallery">Gallery</a></li>
         <li><a href="#contact">Contact</a></li>
-        <li><a href="#admin-login">Admin</a></li>
+      
+
       </ul>
     </nav>
   </header>
 
   <section class="hero">
     <h2>Capture Your Best Moments</h2>
+   
     <a href="#appointment" class="btn">Book a Session</a>
   </section>
 
@@ -56,26 +77,6 @@
     </div>
   </section>
 
-  <!-- Admin Login -->
-  <section id="admin-login">
-    <h2>Admin Login</h2>
-    <form class="admin-form">
-      <input type="text" id="admin-username" placeholder="Username" required>
-      <input type="password" id="admin-password" placeholder="Password" required>
-      <button type="submit">Login</button>
-    </form>
-    <p id="login-message"></p>
-  </section>
-
-  <!-- Admin Panel -->
-  <section id="admin-panel">
-    <h2>Admin Panel</h2>
-    <label>Edit first service title:</label>
-    <input type="text" id="edit-service-1" placeholder="Enter new title">
-    <button onclick="updateServiceText()">Update</button>
-  </section>
-
-  <!-- Gallery -->
   <section id="gallery" class="gallery">
     <h2>Gallery</h2>
     <div class="gallery-grid">
@@ -85,78 +86,59 @@
       <img src="https://res.cloudinary.com/dql2hhhv8/image/upload/v1751891470/bittu5_x6wpg7.jpg" alt="Sample Photo 4">
       <img src="https://res.cloudinary.com/dql2hhhv8/image/upload/v1751891470/bittu3_tylnxx.jpg" alt="Sample Photo 5">
       <img src="https://res.cloudinary.com/dql2hhhv8/image/upload/v1751889706/love_cnizvt.jpg" alt="Sample Photo 6">
+      
+
     </div>
+    <section id="appointment" class="appointment">
+  <h2>Book an Appointment</h2>
+  <form class="appointment-form" action="https://formspree.io/f/mkgblwre" method="POST">
+    <input type="text" name="name" placeholder="Your Name" required>
+
+    <input type="email" name="email" placeholder="Your Email" required>
+
+    <input type="tel" name="phone" placeholder="Your Phone Number" required>
+
+    <select name="service" required>
+      <option value="">Select Service</option>
+      <option value="Photography">Photography</option>
+      <option value="Music">Music</option>
+      <option value="Video Editing">Video Editing</option>
+    </select>
+
+    <input type="date" name="date" required>
+    <input type="time" name="time" required>
+
+    <button type="submit">Schedule Appointment</button>
+  </form>
+</section>
+
+
   </section>
 
-  <!-- Appointment Form -->
-  <section id="appointment" class="appointment">
-    <h2>Book an Appointment</h2>
-    <form class="appointment-form" action="https://formspree.io/f/mkgblwre" method="POST">
-      <input type="text" name="name" placeholder="Your Name" required>
-      <input type="email" name="email" placeholder="Your Email" required>
-      <input type="tel" name="phone" placeholder="Your Phone Number" required>
-      <select name="service" required>
-        <option value="">Select Service</option>
-        <option value="Photography">Photography</option>
-        <option value="Music">Music</option>
-        <option value="Video Editing">Video Editing</option>
-      </select>
-      <input type="date" name="date" required>
-      <input type="time" name="time" required>
-      <button type="submit">Schedule Appointment</button>
-    </form>
-  </section>
-
-  <!-- Contact -->
   <section id="contact" class="contact">
     <h2>Contact Us</h2>
     <p>Email: contact@shuttermoments.com</p>
     <p>Phone: 9912325558</p>
-    <p>Location: GANDHI NAGAR, BHUVUNAPALLI, WEST GODAVARI</p>
+    <p>Location: GANDHI NAGAR,BHUVUNAPALLI,WEST GODAVARI</p>
     <footer>
-      <p>Follow us:</p>
-      <div class="social-icons">
-        <a href="https://facebook.com/" target="_blank"><i class="fab fa-facebook"></i></a>
-        <a href="https://instagram.com/bittu_orginals" target="_blank"><i class="fab fa-instagram"></i></a>
-        <a href="https://twitter.com/yourpage" target="_blank"><i class="fab fa-twitter"></i></a>
-      </div>
-    </footer>
+  <p>Follow us:</p>
+  <div class="social-icons">
+    <!-- icons here -->
+  </div>
+          <div class="social-icons">
+  <a href="https://facebook.com/" target="_blank"><i class="fab fa-facebook"></i></a>
+  <a href="https://instagram.com/bittu_orginals" target="_blank"><i class="fab fa-instagram"></i></a>
+  <a href="https://twitter.com/yourpage" target="_blank"><i class="fab fa-twitter"></i></a>
+</div>
+
+
+
+</footer>
+
   </section>
 
   <footer class="footer">
     <p>&copy; 2025 bittu studio. All rights reserved.</p>
   </footer>
-
-  <!-- JavaScript at bottom -->
-  <script>
-    const loginForm = document.querySelector('.admin-form');
-    const loginMessage = document.getElementById('login-message');
-    const adminPanel = document.getElementById('admin-panel');
-
-    const correctUsername = "admin";
-    const correctPassword = "1234";
-
-    loginForm.addEventListener("submit", function (e) {
-      e.preventDefault();
-      const username = document.getElementById('admin-username').value;
-      const password = document.getElementById('admin-password').value;
-
-      if (username === correctUsername && password === correctPassword) {
-        loginMessage.textContent = "Login successful!";
-        adminPanel.style.display = "block";
-      } else {
-        loginMessage.textContent = "Invalid credentials.";
-      }
-    });
-
-    function updateServiceText() {
-      const newText = document.getElementById('edit-service-1').value;
-      const serviceCard = document.querySelectorAll('.card h3')[0];
-      if (newText && serviceCard) {
-        serviceCard.textContent = newText;
-        alert("Service updated!");
-      }
-    }
-  </script>
 </body>
 </html>
