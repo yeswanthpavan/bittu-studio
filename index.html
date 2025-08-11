@@ -1,3 +1,126 @@
+CREATE DATABASE mywebsite;
+
+USE mywebsite;
+
+CREATE TABLE admins (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) UNIQUE NOT NULL,
+    password VARCHAR(255) NOT NULL
+);
+
+-- Create an example admin user with hashed password
+INSERT INTO admins (username, password) 
+VALUES ('admin', SHA2('yourpassword', 256));
+
+CREATE TABLE site_content (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    page_name VARCHAR(50),
+    content TEXT
+);
+<?php
+session_start();
+include 'db.php';
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+
+    $stmt = $conn->prepare("SELECT * FROM admins WHERE username=?");
+    $stmt->bind_param("s", $username);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $admin = $result->fetch_assoc();
+
+    if ($admin && hash('sha256', $password) === $admin['password']) {
+        $_SESSION['admin'] = $admin['username'];
+        header("Location: admin.php");
+        exit();
+    } else {
+        $error = "Invalid credentials!";
+    }
+}
+?>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Login</title>
+</head>
+<body>
+<h2>Admin Login</h2>
+<form method="POST">
+    <input type="text" name="username" placeholder="Username" required><br>
+    <input type="password" name="password" placeholder="Password" required><br>
+    <button type="submit">Login</button>
+</form>
+<?php if(isset($error)) echo "<p>$error</p>"; ?>
+</body>
+</html>
+<?php
+$host = "localhost";
+$user = "root";  // Change this
+$pass = "";      // Change this
+$db   = "mywebsite";
+
+$conn = new mysqli($host, $user, $pass, $db);
+
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+?>
+<?php
+session_start();
+include 'db.php';
+
+if (!isset($_SESSION['admin'])) {
+    header("Location: login.php");
+    exit();
+}
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $page = $_POST['page_name'];
+    $content = $_POST['content'];
+
+    $stmt = $conn->prepare("UPDATE site_content SET content=? WHERE page_name=?");
+    $stmt->bind_param("ss", $content, $page);
+    $stmt->execute();
+    $msg = "Content updated successfully!";
+}
+
+$result = $conn->query("SELECT * FROM site_content");
+?>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Dashboard</title>
+</head>
+<body>
+<h2>Welcome, <?php echo $_SESSION['admin']; ?></h2>
+<a href="logout.php">Logout</a>
+<hr>
+
+<?php if(isset($msg)) echo "<p>$msg</p>"; ?>
+
+<form method="POST">
+    <label>Choose Page:</label>
+    <select name="page_name">
+        <?php while($row = $result->fetch_assoc()): ?>
+            <option value="<?php echo $row['page_name']; ?>"><?php echo $row['page_name']; ?></option>
+        <?php endwhile; ?>
+    </select>
+    <br><br>
+    <textarea name="content" rows="5" cols="50" placeholder="Enter new content"></textarea>
+    <br>
+    <button type="submit">Update</button>
+</form>
+</body>
+</html>
+<?php
+session_start();
+session_destroy();
+header("Location: login.php");
+exit();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -126,7 +249,7 @@
   </div>
           <div class="social-icons">
   <a href="https://facebook.com/" target="_blank"><i class="fab fa-facebook"></i></a>
-  <a href="https://instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
+  <a href="https://instagram.com/bittu_orginals" target="_blank"><i class="fab fa-instagram"></i></a>
   <a href="https://twitter.com/yourpage" target="_blank"><i class="fab fa-twitter"></i></a>
 </div>
 
