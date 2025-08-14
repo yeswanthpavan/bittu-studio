@@ -87,23 +87,27 @@ nav a {
 }
 
 /* ===== Gallery Section ===== */
-.gallery {
-  padding: 3rem 2rem;
+.gallery-title {
   text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 20px;
 }
 
-.gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1rem;
-  margin-top: 2rem;
+.masonry {
+  column-count: 3;          /* Number of columns */
+  column-gap: 10px;         /* Space between columns */
 }
 
-.gallery img {
-  width: 100%;
-  height: auto;
-  border-radius: 8px;
+.masonry img {
+  width: 100%;              /* Fit image to column width */
+  height: auto;             /* Keep original ratio */
+  margin-bottom: 10px;      /* Space between images */
+  border-radius: 6px;       /* Optional rounded corners */
+  display: block;
 }
+
+
 
 /* ===== Contact Section ===== */
 .contact {
