@@ -95,56 +95,17 @@ nav a {
 }
 
 .masonry {
-  column-count: 3;          /* Number of columns */
-  column-gap: 10px;         /* Space between columns */
+  column-count: 3;
+  column-gap: 10px;
 }
 
 .masonry img {
-  width: 100%;              /* Fit image to column width */
-  height: auto;             /* Keep original ratio */
-  margin-bottom: 10px;      /* Space between images */
-  border-radius: 6px;       /* Optional rounded corners */
+  width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+  border-radius: 6px;
   display: block;
 }
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-}
-
-.gallery-title {
-  text-align: center;
-  font-size: 2rem;
-  font-weight: bold;
-  margin: 20px 0;
-}
-
-#masonry {
-  position: relative;
-  max-width: 1200px;
-  margin: auto;
-}
-
-#masonry img {
-  position: absolute;
-  border-radius: 6px;
-  box-sizing: border-box;
-}
-
-/* Responsive widths */
-@media (max-width: 1024px) {
-  #masonry img {
-    width: calc(50% - 10px); /* Tablet = 2 columns */
-  }
-}
-
-@media (max-width: 600px) {
-  #masonry img {
-    width: calc(100% - 10px); /* Mobile = 1 column */
-  }
-}
-
-
 
 /* ===== Contact Section ===== */
 .contact {
@@ -152,7 +113,8 @@ body {
   padding: 3rem 2rem;
   text-align: center;
 }
-/* Appointment Section */
+
+/* ===== Appointment Section ===== */
 .appointment {
   background-color: #f4f4f4;
   padding: 3rem 2rem;
@@ -196,7 +158,6 @@ body {
   background-color: #1d2e8b;
 }
 
-
 /* ===== Footer ===== */
 .footer {
   background: #111;
@@ -220,70 +181,65 @@ body {
 
 /* ===== Responsive Styles ===== */
 
-/* Tablets (≤768px) */
+/* Tablets (≤1024px) */
+@media (max-width: 1024px) {
+  .masonry {
+    column-count: 2;
+  }
+  .hero h2 {
+    font-size: 3.5rem;
+  }
+}
+
+/* Mobile Landscape & Small Tablets (≤768px) */
 @media (max-width: 768px) {
   .header {
     flex-direction: column;
     text-align: center;
   }
-
   nav ul {
     flex-direction: column;
     gap: 1rem;
     margin-top: 1rem;
   }
-
   .hero {
     padding: 6rem 1rem;
   }
-
   .hero h2 {
-    font-size: 3rem;
+    font-size: 2.5rem;
   }
-
   .service-cards {
     flex-direction: column;
     align-items: center;
   }
-
   .card {
     max-width: 90%;
   }
-
-  .gallery-grid {
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  .masonry {
+    column-count: 1;
   }
 }
 
-/* Mobile (≤480px) */
+/* Mobile Portrait (≤480px) */
 @media (max-width: 480px) {
   .header h1 {
     font-size: 1.4rem;
   }
-
   .hero h2 {
-    font-size: 2rem;
+    font-size: 1.8rem;
     margin-bottom: 1rem;
   }
-
   .hero .btn {
     font-size: 0.9rem;
     padding: 0.5rem 1.5rem;
   }
-
   .card {
     padding: 1rem;
   }
-
-  .gallery-grid {
-    grid-template-columns: 1fr;
-  }
-
   .footer {
     font-size: 0.8rem;
     padding: 0.5rem;
   }
-
   .social-icons a {
     font-size: 20px;
     margin: 0 5px;
