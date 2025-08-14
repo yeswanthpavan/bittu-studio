@@ -106,6 +106,43 @@ nav a {
   border-radius: 6px;       /* Optional rounded corners */
   display: block;
 }
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.gallery-title {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 20px 0;
+}
+
+#masonry {
+  position: relative;
+  max-width: 1200px;
+  margin: auto;
+}
+
+#masonry img {
+  position: absolute;
+  border-radius: 6px;
+  box-sizing: border-box;
+}
+
+/* Responsive widths */
+@media (max-width: 1024px) {
+  #masonry img {
+    width: calc(50% - 10px); /* Tablet = 2 columns */
+  }
+}
+
+@media (max-width: 600px) {
+  #masonry img {
+    width: calc(100% - 10px); /* Mobile = 1 column */
+  }
+}
 
 
 
