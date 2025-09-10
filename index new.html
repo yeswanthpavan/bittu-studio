@@ -1,0 +1,202 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bittu Studios</title>
+  <link rel="stylesheet" href="styles.css" />
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<script>
+  const loginForm = document.querySelector('.admin-form');
+  const loginMessage = document.getElementById('login-message');
+  const adminPanel = document.getElementById('admin-panel');
+
+  const correctUsername = "admin";
+  const correctPassword = "1234";
+
+  loginForm.addEventListener("submit", function (e) {
+    e.preventDefault();
+    const username = document.getElementById('admin-username').value;
+    const password = document.getElementById('admin-password').value;
+
+    if (username === correctUsername && password === correctPassword) {
+      loginMessage.textContent = "Login successful!";
+      adminPanel.style.display = "block";
+    } else {
+      loginMessage.textContent = "Invalid credentials.";
+    }
+  });
+
+  function updateServiceText() {
+    const newText = document.getElementById('edit-service-1').value;
+    const serviceCard = document.querySelectorAll('.card h3')[0]; // First service title
+    if (newText && serviceCard) {
+      serviceCard.textContent = newText;
+      alert("Service updated!");
+    }
+  }
+</script>
+
+<body>
+  <header class="header">
+    <h1>BITTU STUDIOS</h1>
+    <nav>
+      <ul>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#appointment">Book Appointment</a></li>
+      
+
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h2>Bittu klicks - Making movements memorable</h2>
+
+    <a href="#appointment" class="btn">Book a Session</a>
+  </section>
+
+  <section id="services" class="services">
+    <h2>Our Services</h2>
+    <div class="service-cards">
+      <div class="card">
+        <h3>Photography</h3>
+        <p>High-quality individual and family portraits model Photography | baby shower | kid Photography | haldhi wedding & reception | 4k video for all occasions.</p>
+      </div>
+      <div class="card">
+        <h3>Music</h3>
+        <p>"We don’t just create music — we create the moment you’ll never forget."</p>
+        <p>"We compose what words can’t express — crafting songs, movie scores, and unforgettable BGMs"</p>
+      </div>
+      <div class="card">
+        <h3>Video Editing</h3>
+        <p>"We don’t just edit videos we make your moments unforgettable."
+            *Every cut. Every frame. Every emotion*  
+            🎬 Let’s turn your footage into a masterpiece.</p>
+      </div>
+      <div class="card">
+        <h3>Mac & Tech Services</h3>
+        <p>"We do Perfect Mac repair service . We do installations for ultimate movie background scores in Mac. Will wait to see You create magic."  ph.8008005014.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="gallery" class="gallery">
+  
+  <h2 class="gallery-title">Gallery</h2>
+  <div class="masonry">
+    <span><img src="images/love.jpg" alt="bittu"></span>
+    <span><img src="https://res.cloudinary.com/dql2hhhv8/image/upload/v1751891470/bittu1_gqmazv.jpg" alt="Sample Photo 3"></span>
+
+    <span><img src="https://res.cloudinary.com/dql2hhhv8/image/upload/v1755017336/81_gq986b.jpg" alt="big image "></span>
+    <span><img src="https://res.cloudinary.com/dql2hhhv8/image/upload/v1755017329/78_e2smnc.jpg" alt="Sample Photo 17"></span>
+    <span><img src="https://res.cloudinary.com/dql2hhhv8/image/upload/v1755017320/61_n3umhk.jpg" alt="4th"></span>
+    <span><img src="https://res.cloudinary.com/dql2hhhv8/image/upload/v1755017328/25_mgi0qv.jpg" alt=" 5th"></span>
+    <span><img src="https://res.cloudinary.com/dql2hhhv8/image/upload/v1755017334/88_iqeegb.jpg" alt=" 6th"></span>
+    <span><img src="https://res.cloudinary.com/dql2hhhv8/image/upload/v1755017333/76_hoshka.jpg" alt="7th"></span>
+    <span><img src="https://res.cloudinary.com/dql2hhhv8/image/upload/v1751891470/bittu5_x6wpg7.jpg" alt="Sample Photo 4"></span>
+    <span><img src="https://res.cloudinary.com/dql2hhhv8/image/upload/v1751891470/bittu3_tylnxx.jpg" alt="Sample Photo 5"></span>
+
+
+    <span><img src="https://res.cloudinary.com/dql2hhhv8/image/upload/v1755152084/36_rzl1k7.jpg" alt="saiakka"></span>
+    <span><img src="https://res.cloudinary.com/dql2hhhv8/image/upload/v1755012824/10_nh6saf.jpg" alt="8th"></span>
+    <span><img src="https://res.cloudinary.com/dql2hhhv8/image/upload/v1755012821/17_qwoony.jpg" alt="9th"></span>
+    <span><img src="https://res.cloudinary.com/dql2hhhv8/image/upload/v1755012820/21_2_oy5vo9.jpg" alt="10th"></span>
+    <span><img src="https://res.cloudinary.com/dql2hhhv8/image/upload/v1755152069/15_frfcz5.jpg" alt="kiran"></span>
+    <span><img src="https://res.cloudinary.com/dql2hhhv8/image/upload/v1755012827/suvi_6_lnbkoa.jpg" alt="suvrana"></span>
+    <span><img src="https://res.cloudinary.com/dql2hhhv8/image/upload/v1755012826/raju_2_qb4xdm.jpg" alt="surya"></span>
+    <span><img src="https://res.cloudinary.com/dql2hhhv8/image/upload/v1751891471/bro_l50b3o.jpg" alt="a"></span>
+    <span><img src="https://res.cloudinary.com/dql2hhhv8/image/upload/v1755152100/15_eq4taq.jpg" alt="kiran"></span>
+
+    <span><img src="https://res.cloudinary.com/dql2hhhv8/image/upload/v1755017321/14_uet9lt.jpg" alt="13th"></span>
+    <span><img src="https://res.cloudinary.com/dql2hhhv8/image/upload/v1755017346/99_ob2qzs.jpg" alt="14th"></span>
+    <span><img src="https://res.cloudinary.com/dql2hhhv8/image/upload/v1755017346/102_koq9mx.jpg" alt="16th"></span>
+    <span><img src="https://res.cloudinary.com/dql2hhhv8/image/upload/v1755017354/104_wb1c0q.jpg" alt="17th"></span>
+    <span><img src="https://res.cloudinary.com/dql2hhhv8/image/upload/v1755017356/113_copy_zfhpye.jpg" alt="18th"></span>
+    <span><img src="https://res.cloudinary.com/dql2hhhv8/image/upload/v1755151030/4_xhpt3g.jpg" alt="Sample Photo 6"></span>
+    <span><img src="https://res.cloudinary.com/dql2hhhv8/image/upload/v1755012805/6_vycuan.jpg" alt="Sample Photo 8"></span>
+    <span><img src="https://res.cloudinary.com/dql2hhhv8/image/upload/v1755012810/7_n08h65.jpg" alt="Sample Photo 9"></span>
+    <span><img src="https://res.cloudinary.com/dql2hhhv8/image/upload/v1755012812/10_2_xdj1ay.jpg" alt="Sample Photo 10"></span>
+    <span><img src="https://res.cloudinary.com/dql2hhhv8/image/upload/v1755012814/8_tm9gss.jpg" alt="Sample Photo 11"></span>
+    <span><img src="https://res.cloudinary.com/dql2hhhv8/image/upload/v1755012816/13_gxapc0.jpg" alt="Sample Photo 12"></span>
+    <span><img src="https://res.cloudinary.com/dql2hhhv8/image/upload/v1755012816/9_xjh6an.jpg" alt="Sample Photo 13"></span>
+    <span><img src="https://res.cloudinary.com/dql2hhhv8/image/upload/v1755012817/14_n9gb6y.jpg" alt="Sample Photo 14"></span>
+    <span><img src="https://res.cloudinary.com/dql2hhhv8/image/upload/v1755012816/12_gpr1yk.jpg" alt="Sample Photo 15"></span>
+    <span><img src="https://res.cloudinary.com/dql2hhhv8/image/upload/v1755012820/15_2_mc7dbv.jpg" alt="Sample Photo 16"></span>
+    <span><img src="https://res.cloudinary.com/dql2hhhv8/image/upload/v1755012625/u_1__zfqyno.jpg" alt="uday"></span>
+    <span><img src="https://res.cloudinary.com/dql2hhhv8/image/upload/v1755151244/kiran_1_xgy3kb.jpg" alt="kiran"></span>
+    <span><img src="https://res.cloudinary.com/dql2hhhv8/image/upload/v1755151246/kiran_4_ten70d.jpg" alt="kiran1"></span>
+    <span><img src="https://res.cloudinary.com/dql2hhhv8/image/upload/v1755012826/s_2__voqtw1.jpg" alt="deep"></span>
+    <span><img src="https://res.cloudinary.com/dql2hhhv8/image/upload/v1755151994/chinnu_dnvm87.jpg" alt="chinnu"></span>
+    <span><img src="https://res.cloudinary.com/dql2hhhv8/image/upload/v1755012829/suvi_7_skjfps.jpg" alt="suvrana1"></span>
+    <span><img src="https://res.cloudinary.com/dql2hhhv8/image/upload/v1755012824/a_1__eosciy.jpg" alt="a1"></span>
+
+
+
+
+  </div>
+</section>
+</div>
+    <section id="appointment" class="appointment">
+  <h2>Book an Appointment</h2>
+  <form class="appointment-form" action="https://formspree.io/f/mkgblwre" method="POST">
+    <input type="text" name="name" placeholder="Your Name" required>
+
+    <input type="email" name="email" placeholder="Your Email" required>
+
+    <input type="tel" name="phone" placeholder="Your Phone Number" required>
+
+    <select name="service" required>
+      <option value="">Select Service</option>
+      <option value="Photography">Photography</option>
+      <option value="Music">Music</option>
+      <option value="Video Editing">Video Editing</option>
+      <option value="Mac & Tech Services">Mac & Tech Services</option>
+    </select>
+
+    <input type="DATE" name="DATE" required>
+    <input type="TIME" name="TIME" required>
+
+    <button type="submit">Schedule Appointment</button>
+  </form>
+</section>
+
+
+  </section>
+
+  <section id="contact" class="contact">
+    <h2>Contact Us</h2>
+    <p>Email: bittukalyan999@gmail.com</p>
+    <p>"your moments,our expertise.Distance is never a barrier to our service." </p>
+    <p>Phone: 9912325558|9912325557|8008005014</p>
+    <p>Our Locations:Eluru|Bhimavaram|Chennai</p>
+    <footer>
+  <p>Follow us:</p>
+  <div class="social-icons">
+    <!-- icons here -->
+  </div>
+          <div class="social-icons">
+  <a href="https://facebook.com/" target="_blank"><i class="fab fa-facebook"></i></a>
+  <a href="https://instagram.com/bittu_orginals" target="_blank"><i class="fab fa-instagram"></i></a>
+  <a href="https://twitter.com/yourpage" target="_blank"><i class="fab fa-twitter"></i></a>
+  <a href="https://wa.me/+919912325558" target="_blank" style="color: rgb(17, 21, 17); font-size: 30px;">
+  <i class="fab fa-whatsapp"></i>
+</a>
+
+</div>
+
+
+
+</footer>
+
+  </section>
+
+  <footer class="footer">
+    <p>&copy; 2025 bittu studio. All rights reserved.</p>
+  </footer>
+</body>
+</html>
