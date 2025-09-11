@@ -127,7 +127,7 @@ nav a {
 }
 
 .gallery-item::after {
-  content: "View Photo";
+  
   position: absolute;
   bottom: 0;
   left: 0;
