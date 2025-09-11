@@ -87,25 +87,83 @@ nav a {
   width: 100%;
 }
 
-/* ===== Gallery Section ===== */
+/* ===== Pinterest Gallery ===== */
+.pinterest-gallery {
+  column-count: 4;
+  column-gap: 15px;
+  padding: 20px;
+}
+
 .gallery-title {
   text-align: center;
-  font-size: 2rem;
+  font-size: 2.5rem;
   font-weight: bold;
-  margin-bottom: 20px;
+  margin: 2rem 0;
+  color: #fff;
+  text-shadow: 0 3px 6px rgba(0, 0, 0, 0.5);
 }
 
-.masonry {
-  column-count: 3;
-  column-gap: 10px;
+.gallery-item {
+  position: relative;
+  margin-bottom: 15px;
+  overflow: hidden;
+  border-radius: 12px;
+  break-inside: avoid;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.masonry img {
+.gallery-item img {
   width: 100%;
   height: auto;
-  margin-bottom: 10px;
-  border-radius: 10px;
   display: block;
+  border-radius: 12px;
+  transition: transform 0.4s ease;
+}
+
+/* Hover effect with zoom and overlay */
+.gallery-item:hover img {
+  transform: scale(1.05);
+}
+
+.gallery-item::after {
+  content: "View Photo";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  padding: 0.8rem;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(100%);
+  transition: all 0.3s ease;
+  font-size: 1rem;
+}
+
+.gallery-item:hover::after {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== Responsive Layout ===== */
+@media (max-width: 1200px) {
+  .pinterest-gallery {
+    column-count: 3;
+  }
+}
+
+@media (max-width: 768px) {
+  .pinterest-gallery {
+    column-count: 2;
+  }
+}
+
+@media (max-width: 480px) {
+  .pinterest-gallery {
+    column-count: 1;
+  }
 }
 
 /* ===== Contact Section ===== */
